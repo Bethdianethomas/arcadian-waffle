@@ -24,7 +24,7 @@ exports.Circle = function(name, color, radius){
 		return (radius * 2);
 	}
 	this.getArea = function(){
-		return 18.84955592153876;
+		return (3.141592653589793 * radius * 2);
 	}
 	this.getVolume = undefined;
 	this.instanceof
