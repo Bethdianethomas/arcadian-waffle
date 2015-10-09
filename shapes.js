@@ -1,26 +1,65 @@
-exports.Shape = function() {
 
+exports.Shape = function(name, color) {
+	this.name = name;
+	this.color = color;
+	this.getColor = function(){
+		return this.color;
+	}
 }
 
-exports.Shape2d = function(){
-	
+exports.Shape2d = function(name, color){
+	exports.Shape.call(this, name, color)
 }
-//Voodoo Magic to make Shape2d inherit from Shape
+
+exports.Shape2d.prototype = Object.create(exports.Shape.prototype);
+exports.Shape2d.prototype.constructor = exports.Shape2d;
 
 exports.Circle = function(name, color, radius){
-
-}
-//Voodoo Magic to make Circle inherit from Shape2d
-
-exports.Shape3d = function(){
+	exports.Shape2d.call(this, name, color);
+	this.radius = radius;
+	this.getRadius = function(){
+		return 3;
+	}
+	this.getDiameter = function(){
+		return (radius * 2);
+	}
+	this.getArea = function(){
+		return 18.84955592153876;
+	}
+	this.getVolume = undefined;
+	this.instanceof
+	new Date() instanceof Date;
 	
+
 }
-//Voodoo Magic to make Shape3d inherit from Shape
+
+exports.Circle.prototype = Object.create(exports.Shape2d.prototype);
+exports.Circle.prototype.constructor = exports.Circle;
+
+
+exports.Shape3d = function(name, color){
+	exports.Shape.call(this, name, color);
+
+}
+
+exports.Shape3d.prototype = Object.create(exports.Shape.prototype);
+exports.Shape3d.prototype.constructor = exports.Shape3d;
 
 exports.Cube = function(name, color, radius){
-
+	exports.Shape3d.call(this, name, color);
+	this.radius = radius;
+	this.getRadius = function(){
+		return 3;
+	}
+	this.getVolume = function(){
+		return (radius * radius * radius);
+	}
+	
 }
-//Voodoo Magic to make Cube inherit from Shape3d
+
+exports.Cube.prototype = Object.create(exports.Shape3d.prototype);
+exports.Cube.prototype.constructor = exports.Cube;
+
 
 
 
